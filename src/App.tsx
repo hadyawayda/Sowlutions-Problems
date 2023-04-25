@@ -2,23 +2,43 @@ import { useState } from 'react'
 import './App.css'
 
 export default function App() {
-  const [email, setEmail] = useState('')
-  const answer = Solution1(email);
-  console.log(answer)
+  const [email, setEmail] = useState('');
+  const answer1 = Solution1(email);
+  const input = ['diamonds', 'lion', 'papaya']
+  const answer2 = Solution2(input);
   return (
     <div className='flex flex-col justify-between p-12 h-36 w-full'>
-      <h1 className='mb-4'>Problem 1</h1>
-      <div className='mb-4'>
-        <label>Input: </label>
-        <input placeholder='Enter an Email' onChange={e => setEmail(e.target.value)} 
-        className='border-1 border-solid focus:border-indigo-500 transition-colors 
-        duration-300 bg-gray-200 ml-8 p-3 rounded-lg w-96' />
+      <div>
+        <h1 className='mb-4'>Problem 1</h1>
+        <div className='mb-4'>
+          <label>Input: </label>
+          <input placeholder='Enter an Email' onChange={e => setEmail(e.target.value)} 
+          className='border-1 border-solid focus:border-indigo-500 transition-colors 
+          duration-300 bg-gray-200 ml-8 p-3 rounded-lg w-96' />
+        </div>
+        <div className="flex justify-center">
+          {answer1 ? <div>true</div> : <div>false</div> }
+        </div>
       </div>
-      <div className="flex justify-center">
-        {answer ? <div>true</div> : <div>false</div> }
+      <div>
+        <h1 className='mb-4'>Problem 2</h1>
+        <div className='mb-4'>
+          <label>Input: </label>
+          <input placeholder='Enter an Email' onChange={e => setEmail(e.target.value)} 
+          className='border-1 border-solid focus:border-indigo-500 transition-colors 
+          duration-300 bg-gray-200 ml-8 p-3 rounded-lg w-96' />
+        </div>
+        <div className="flex justify-center">
+          {answer2 ? <div>true</div> : <div>false</div> }
+        </div>
       </div>
     </div>
   )
+}
+
+function Solution2 (input :any[]) : boolean {
+
+  return false
 }
 
 function Solution1 (email :string) :boolean {
@@ -68,3 +88,4 @@ function Solution1 (email :string) :boolean {
   }
   return false;
 }
+
